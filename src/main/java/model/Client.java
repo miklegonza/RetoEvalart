@@ -81,14 +81,14 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client: \n" +
-                "id = " + id + '\n' +
-                "code = " + code + '\n' +
-                "male = " + male + '\n' +
-                "type = " + type + '\n' +
-                "location = " + location + '\n' +
-                "company = " + company + '\n' +
-                "encrypt = " + encrypt + '\n';
+        return "Client { " +
+                "id = " + id +
+                ", code = " + code +
+                ", male = " + male +
+                ", type = " + type +
+                ", location = " + location +
+                ", company = " + company +
+                ", encrypt = " + encrypt + " }";
     }
 
 }

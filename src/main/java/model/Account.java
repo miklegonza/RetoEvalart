@@ -42,10 +42,10 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account: \n" +
-                "id = " + id + '\n' +
-                "clientId = { \n" + clientId.toString() + "}\n" +
-                "balance = " + balance + '\n';
+        return "Account { " +
+                "id = " + id +
+                ", balance = " + balance +
+                ", " + clientId + " }";
     }
 
 }
