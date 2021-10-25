@@ -5,7 +5,7 @@ en el marco de la celebración de la [Feria Bintec 2021](https://bintec.eventosb
 Se trata de un programa en Java para seleccionar los invitados a una cena y su ubicación en cada mesa según ciertos criterios generales y particulares.
 
 # Funcionamiento
-El archivo [entrada.txt](./entrada.txt) provee los criterios que deben cumplir los invitados de cada una de las 7 mesas. Luego de la ejecución, la salida se verá reflejada en el archivo **salida.txt** en cual se listarán los códigos de cada invitado en su mesa respectiva. 
+El archivo [entrada.txt](entrada.txt) provee los criterios que deben cumplir los invitados de cada una de las 7 mesas. Luego de la ejecución, la salida se verá reflejada en el archivo **salida.txt** en cual se listarán los códigos de cada invitado en su mesa respectiva. 
 
 La base de datos la proveen los organizadores del evento. Esta cuenta con dos tablas: Account & Client
 

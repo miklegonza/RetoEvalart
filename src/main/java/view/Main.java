@@ -2,36 +2,30 @@ package view;
 
 import controller.Filters;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Main {
 
     public static void main(String[] args) {
-        Main main = new Main();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("entrada.txt"));
+            StringBuilder builder = new StringBuilder();
+            String line = reader.readLine();
 
-        String input = "<General>\n" +
-                "TC:1\n" +
-                "<Mesa 1>\n" +
-                "UG:2\n" +
-                "RI:500000\n" +
-                "<Mesa 2>\n" +
-                "UG:1\n" +
-                "RF:500000\n" +
-                "<Mesa 3>\n" +
-                "UG:3\n" +
-                "TC:5\n" +
-                "RF:10000\n" +
-                "<Mesa 4>\n" +
-                "UG:1\n" +
-                "RF:100000\n" +
-                "<Mesa 5>\n" +
-                "UG:99\n" +
-                "<Mesa 6>\n" +
-                "TC:11\n" +
-                "RI:10000";
-
-        Filters filters = new Filters(input);
-
-        filters.procesar();
-        filters.printOutput();
+            while (line != null) {
+                builder.append(line);
+                builder.append("\n");
+                line = reader.readLine();
+            }
+            Filters filters = new Filters(builder.toString());
+            filters.applyFilters();
+            System.out.println(filters.printOutput());
+            javax.swing.JOptionPane.showMessageDialog(null, filters.printOutput(), "Salida", 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

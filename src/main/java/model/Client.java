@@ -9,8 +9,10 @@ public class Client {
     private String location; // Código de ubicación del cliente
     private String company; // Empresa a la que pertenece
     private Byte encrypt; // 0 si no está encriptado, 1 si se debe desencriptar con el servicio web
+    private Double totalBalance; // Adicional. Monto total en las cuentas del banco
+    private Boolean selected; // Adicional. Si ya está seleccionado en una mesa
 
-    public Client(Integer id, String code, Byte male, Integer type, String location, String company, Byte encrypt) {
+    public Client(Integer id, String code, Byte male, Integer type, String location, String company, Byte encrypt, Double totalBalance, Boolean selected) {
         this.id = id;
         this.code = code;
         this.male = male;
@@ -18,6 +20,16 @@ public class Client {
         this.location = location;
         this.company = company;
         this.encrypt = encrypt;
+        this.totalBalance = totalBalance;
+        this.selected = selected;
+    }
+
+    public Client(Integer id, String code, Byte male, Integer type, String location, String company, Byte encrypt, Double totalBalance) {
+        this(id, code, male, type, location, company, encrypt, totalBalance, false);
+    }
+
+    public Client(Integer id, String code, Byte male, Integer type, String location, String company, Byte encrypt) {
+        this(id, code, male, type, location, company, encrypt, 0.0);
     }
 
     public Client() {
@@ -79,6 +91,22 @@ public class Client {
         this.encrypt = encrypt;
     }
 
+    public Double getTotalBalance() {
+        return totalBalance;
+    }
+
+    public void setTotalBalance(Double totalBalance) {
+        this.totalBalance = totalBalance;
+    }
+
+    public Boolean getSelected() {
+        return selected;
+    }
+
+    public void setSelected(Boolean selected) {
+        this.selected = selected;
+    }
+
     @Override
     public String toString() {
         return "Client { " +
@@ -88,7 +116,9 @@ public class Client {
                 ", type = " + type +
                 ", location = " + location +
                 ", company = " + company +
-                ", encrypt = " + encrypt + " }";
+                ", encrypt = " + encrypt +
+                ", totalBalance = " + totalBalance +
+                ", Selected = " + selected + " }";
     }
 
 }

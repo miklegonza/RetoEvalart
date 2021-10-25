@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Table {
 
     private String name;
@@ -7,21 +10,19 @@ public class Table {
     private Integer ug;
     private Double ri;
     private Double rf;
+    private List<Client> guests;
 
-    public Table(String name, Integer tc, Integer ug, Double ri, Double rf) {
+    public Table(String name, Integer tc, Integer ug, Double ri, Double rf, List<Client> guests) {
         this.name = name;
         this.tc = tc;
         this.ug = ug;
         this.ri = ri;
         this.rf = rf;
+        this.guests = guests;
     }
 
     public Table(String name) {
-        this.name = name;
-        this.tc = 0;
-        this.ug = 0;
-        this.ri = 0.0;
-        this.rf = 0.0;
+        this(name, 0, 0, 0.0, 0.0, new ArrayList<>());
     }
 
     public String getName() {
@@ -64,13 +65,29 @@ public class Table {
         this.rf = rf;
     }
 
+    public List<Client> getGuests() {
+        return guests;
+    }
+
+    public void setGuests(List<Client> guests) {
+        this.guests = guests;
+    }
+
     @Override
     public String toString() {
         return "<" + name + "> \n" +
                 "TC:" + tc + '\n' +
                 "UG:" + ug + '\n' +
                 "RI:" + ri + '\n' +
-                "RF:" + rf + '\n';
+                "RF:" + rf + '\n' +
+                "Clients: " + temp(guests) + '\n';
+    }
+
+    String temp(List<Client> clients) {
+        String salida = "\n";
+        for (Client client : clients)
+            salida += client + "\n";
+        return salida;
     }
 
 }
